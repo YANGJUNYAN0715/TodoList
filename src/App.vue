@@ -3,11 +3,12 @@
     <div class="header-box">
       <div class="header-left">
         <div>+</div>
-        <h2>Todo List</h2>
+        <h2>TodoList 待办事件列表</h2>
       </div>
       <div class="header-right">
         <button class="headerallSelect" @click="handleallSelect">全选</button>
         <button class="headerAdd" @click="handleAdd">添加</button>
+        <button class="headerClear" @click="handleClear">清空</button>
       </div>
     </div>
     <div class="content">
@@ -90,7 +91,8 @@ export default {
         this.todoList.splice(index, 1);
       }
       jsConfetti.addConfetti({
-        emojis: ["👍", "📅", "🎯", "✨"],
+        emojis: ["👍", "📅"],
+        confettiNumber: 20,
       });
       this.storage();
     },
@@ -106,6 +108,14 @@ export default {
           return;
         }
         item.isCheck = !item.isCheck;
+      });
+      this.storage();
+    },
+    handleClear() {
+      this.todoList = [];
+      jsConfetti.addConfetti({
+        emojis: ["🎮", "✨"],
+        confettiNumber: 20,
       });
       this.storage();
     },
@@ -169,6 +179,9 @@ button {
       }
       .headerAdd {
         background-color: rgb(19, 113, 19);
+      }
+      .headerClear {
+        background-color: rgb(50, 113, 150);
       }
     }
   }
