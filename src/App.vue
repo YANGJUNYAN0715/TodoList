@@ -6,9 +6,12 @@
         <h2>TodoList 待办事件列表</h2>
       </div>
       <div class="header-right">
-        <button class="headerallSelect" @click="handleallSelect">全选</button>
+        <button class="headerAllSelect" @click="handleallSelect">全选</button>
         <button class="headerAdd" @click="handleAdd">添加</button>
         <button class="headerClear" @click="handleClear">清空</button>
+        <button class="headerDelSelected" @click="handleDelSelected">
+          删除已选
+        </button>
       </div>
     </div>
     <div class="content">
@@ -119,6 +122,14 @@ export default {
       });
       this.storage();
     },
+    handleDelSelected() {
+      this.todoList = this.todoList.filter((item) => item.isCheck == false);
+      jsConfetti.addConfetti({
+        emojis: ["👍", "📅"],
+        confettiNumber: 20,
+      });
+      this.storage();
+    },
     randomID() {
       return Number(
         Math.random().toString().substr(2, 0) + Date.now()
@@ -174,7 +185,7 @@ button {
       }
     }
     .header-right {
-      .headerallSelect {
+      .headerAllSelect {
         background-color: rgb(167, 7, 12);
       }
       .headerAdd {
@@ -182,6 +193,9 @@ button {
       }
       .headerClear {
         background-color: rgb(50, 113, 150);
+      }
+      .headerDelSelected {
+        background-color: rgb(108, 2, 78);
       }
     }
   }
