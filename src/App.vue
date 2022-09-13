@@ -6,10 +6,13 @@
         <h2>TodoList 待办事件列表</h2>
       </div>
       <div class="header-right">
-        <button class="headerAllSelect" @click="handleSelectAll">全选</button>
+        <button class="headerSelectAll" @click="handleSelectAll">全选</button>
+        <button class="headerCancelSelectAll" @click="handleCancelSelectAll">
+          取消全选
+        </button>
         <button class="headerAdd" @click="handleAdd">添加</button>
         <button class="headerClear" @click="handleClear">清空</button>
-        <button class="headerDelSelected" @click="handleDelSelected">
+        <button class="handleDeleteSelected" @click="handleDeleteSelected">
           删除已选
         </button>
       </div>
@@ -34,7 +37,7 @@
         />
         <div class="content-right">
           <p>{{ item.time }}</p>
-          <button @click="handleDelItem(index, item.id)">删除</button>
+          <button @click="handleDelete(index, item.id)">删除</button>
         </div>
       </div>
       <div class="content-item">
@@ -92,7 +95,7 @@ export default {
         this.$refs.input[inputLength].focus();
       });
     },
-    handleDelItem(index, id) {
+    handleDelete(index, id) {
       if (this.todoList[index].id === id) {
         this.todoList.splice(index, 1);
       }
@@ -117,6 +120,15 @@ export default {
       });
       this.storage();
     },
+    handleCancelSelectAll() {
+      this.todoList.forEach((item) => {
+        if (item.isCheck == false) {
+          return;
+        }
+        item.isCheck = !item.isCheck;
+      });
+      this.storage();
+    },
     handleClear() {
       this.todoList = [];
       jsConfetti.addConfetti({
@@ -125,7 +137,7 @@ export default {
       });
       this.storage();
     },
-    handleDelSelected() {
+    handleDeleteSelected() {
       this.todoList = this.todoList.filter((item) => item.isCheck == false);
       jsConfetti.addConfetti({
         emojis: ["👍", "📅"],
@@ -188,8 +200,11 @@ button {
       }
     }
     .header-right {
-      .headerAllSelect {
+      .headerSelectAll {
         background-color: rgb(167, 7, 12);
+      }
+      .headerCancelSelectAll {
+        background-color: rgb(73, 1, 3);
       }
       .headerAdd {
         background-color: rgb(19, 113, 19);
@@ -197,7 +212,7 @@ button {
       .headerClear {
         background-color: rgb(50, 113, 150);
       }
-      .headerDelSelected {
+      .handleDeleteSelected {
         background-color: rgb(108, 2, 78);
       }
     }

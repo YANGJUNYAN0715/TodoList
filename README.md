@@ -3,7 +3,7 @@
 
 ## Design notes
 
-A web application which can be used to record to-do events, including functions of add, delete, selectAll, clear and delSelected. 🎈📅😋
+A web application which can be used to record to-do events, including functions of add, delete, selectAll, clear, cancelSelectAll and deleteSelected. 🎈📅😋
 
 ## Project setup
 
@@ -33,3 +33,4 @@ Junyan Yang([1310204834@qq.com](mailto:1310204834@qq.com)) -- writes the main co
   - Initial
 - 13.09.2022 - 1
   - Add the Confetti effect
+  - Add function of "CancelSelectAll"
