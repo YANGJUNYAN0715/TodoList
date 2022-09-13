@@ -6,7 +6,7 @@
         <h2>TodoList 待办事件列表</h2>
       </div>
       <div class="header-right">
-        <button class="headerAllSelect" @click="handleallSelect">全选</button>
+        <button class="headerAllSelect" @click="handleSelectAll">全选</button>
         <button class="headerAdd" @click="handleAdd">添加</button>
         <button class="headerClear" @click="handleClear">清空</button>
         <button class="headerDelSelected" @click="handleDelSelected">
@@ -105,7 +105,7 @@ export default {
       }
       this.storage();
     },
-    handleallSelect() {
+    handleSelectAll() {
       this.todoList.forEach((item) => {
         if (item.isCheck == true) {
           return;
