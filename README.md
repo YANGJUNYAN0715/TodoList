@@ -3,7 +3,7 @@
 
 ## Design notes
 
-A web application which can be used to record to-do events, including fuctions of add, delete, selectAll, clear and delSelected. 🎈📅😋
+A web application which can be used to record to-do events, including functions of add, delete, selectAll, clear and delSelected. 🎈📅😋
 
 ## Project setup
 
