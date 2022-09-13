@@ -37,6 +37,9 @@
           <button @click="handleDelItem(index, item.id)">删除</button>
         </div>
       </div>
+      <div class="content-item">
+        <span>我也是有底线的......</span>
+      </div>
     </div>
   </div>
 </template>
@@ -244,6 +247,8 @@ button {
         border-bottom: 1px solid #ccc;
         padding: 5px 10px;
         color: #fff;
+        font-size: 20px;
+        font-family: "Microsoft YaHei";
       }
       .content-right {
         display: flex;
