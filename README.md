@@ -25,12 +25,12 @@ npm run build
 
 ## Contribution
 
-Junyan Yang([1310204834@qq.com](mailto:1310204834@qq.com)) -- writes the main code of this lab
+Junyan Yang([1310204834@qq.com](mailto:1310204834@qq.com)) -- writes the main code of this project
 
 ## Changelog
 
 - 27.08.2022 - 0
   - Initial
 - 13.09.2022 - 1
-  - Add the Confetti effect
+  - Add Confetti effect
   - Add function of "CancelSelectAll" and "DeleteSelected"
