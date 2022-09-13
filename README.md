@@ -35,4 +35,4 @@ Junyan Yang([1310204834@qq.com](mailto:1310204834@qq.com)) -- writes the main co
   - Add Confetti effect
   - Add function of "CancelSelectAll" and "DeleteSelected"
 - 14.09.2022  - 2
-  - Change the sytle of project
+  - Change project style
