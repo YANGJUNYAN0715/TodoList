@@ -39,8 +39,10 @@
 
 <script>
 // @ts-nocheck
-import { timingSafeEqual } from "crypto";
 import dayjs from "dayjs";
+import JSConfetti from "js-confetti";
+const jsConfetti = new JSConfetti();
+
 export default {
   name: "App",
   data() {
@@ -87,6 +89,9 @@ export default {
       if (this.todoList[index].id === id) {
         this.todoList.splice(index, 1);
       }
+      jsConfetti.addConfetti({
+        emojis: ["👍", "✨", "📅", "🎯"],
+      });
       this.storage();
     },
     handleSelect(index, id) {
