@@ -90,7 +90,7 @@ export default {
         this.todoList.splice(index, 1);
       }
       jsConfetti.addConfetti({
-        emojis: ["👍", "✨", "📅", "🎯"],
+        emojis: ["👍", "📅", "🎯", "✨"],
       });
       this.storage();
     },
