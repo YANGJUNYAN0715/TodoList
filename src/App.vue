@@ -12,7 +12,7 @@
         </button>
         <button class="headerAdd" @click="handleAdd">添加</button>
         <button class="headerClear" @click="handleClear">清空</button>
-        <button class="handleDeleteSelected" @click="handleDeleteSelected">
+        <button class="headerDeleteSelected" @click="handleDeleteSelected">
           删除已选
         </button>
       </div>
@@ -168,11 +168,12 @@ button {
   color: #fff;
   font-size: 20px;
   margin-left: 10px;
+  cursor: pointer;
 }
 .todoListBox {
   width: 800px;
   height: 600px;
-  background-color: #3c3e4f;
+  background-image: linear-gradient(135deg, #5151e6 40%, #7a057457 120%);
   border-radius: 40px;
   position: absolute;
   top: 50%;
@@ -201,19 +202,19 @@ button {
     }
     .header-right {
       .headerSelectAll {
-        background-color: rgb(167, 7, 12);
+        background-color: #4500a2;
       }
       .headerCancelSelectAll {
-        background-color: rgb(73, 1, 3);
+        background-color: #4500a2;
       }
       .headerAdd {
-        background-color: rgb(19, 113, 19);
+        background-color: #4500a2;
       }
       .headerClear {
-        background-color: rgb(50, 113, 150);
+        background-color: #4500a2;
       }
-      .handleDeleteSelected {
-        background-color: rgb(108, 2, 78);
+      .headerDeleteSelected {
+        background-color: #4500a2;
       }
     }
   }
@@ -225,7 +226,7 @@ button {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #696f70;
+      background-color: rgb(127, 7, 143);
       border-radius: 10px;
       padding: 10px 20px;
       box-sizing: border-box;
