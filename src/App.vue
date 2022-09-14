@@ -130,19 +130,26 @@ export default {
       this.storage();
     },
     handleClear() {
-      this.todoList = [];
-      jsConfetti.addConfetti({
-        emojis: ["🎮", "✨"],
-        confettiNumber: 20,
-      });
+      if (this.todoList.length != 0) {
+        this.todoList = [];
+        jsConfetti.addConfetti({
+          emojis: ["🎮", "✨"],
+          confettiNumber: 20,
+        });
+      }
       this.storage();
     },
     handleDeleteSelected() {
-      this.todoList = this.todoList.filter((item) => item.isCheck == false);
-      jsConfetti.addConfetti({
-        emojis: ["👍", "📅"],
-        confettiNumber: 20,
-      });
+      if (
+        this.todoList.length !=
+        this.todoList.filter((item) => item.isCheck == false).length
+      ) {
+        this.todoList = this.todoList.filter((item) => item.isCheck == false);
+        jsConfetti.addConfetti({
+          emojis: ["👍", "📅"],
+          confettiNumber: 20,
+        });
+      }
       this.storage();
     },
     randomID() {
