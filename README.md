@@ -1,4 +1,5 @@
 # TodoList
+
 待办事件列表
 
 ## Design notes
@@ -11,13 +12,13 @@ A web application which can be used to record to-do events, including functions 
 npm install
 ```
 
-###  Compiles and hot-reloads for development
+### Compiles and hot-reloads for development
 
 ```shell
 npm run serve
 ```
 
-###  Compiles and minifies for production
+### Compiles and minifies for production
 
 ```shell
 npm run build
@@ -36,3 +37,5 @@ Junyan Yang([1310204834@qq.com](mailto:1310204834@qq.com)) -- writes the main co
   - Add function of "CancelSelectAll" and "DeleteSelected"
 - 14.09.2022  - 2
   - Change project style
+- 15.09.2022 - 3
+  - Add function of "Search"

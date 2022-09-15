@@ -3,7 +3,7 @@
     <div class="header-box">
       <div class="header-left">
         <div>+</div>
-        <h2>TodoList 待办事件列表</h2>
+        <h2>TodoList😋</h2>
       </div>
       <div class="header-right">
         <button class="headerSelectAll" @click="handleSelectAll">全选</button>
@@ -12,12 +12,20 @@
         </button>
         <button class="headerAdd" @click="handleAdd">添加</button>
         <button class="headerClear" @click="handleClear">清空</button>
-        <button class="headerDeleteSelected" @click="handleDeleteSelected">
+        <button class="headerDeleteSelected" @input="handleDeleteSelected">
           删除已选
         </button>
       </div>
     </div>
     <div class="content">
+      <div class="content-item" style="background-color: #4500a2">
+        <span>🔍查找</span>
+        <input
+          type="text"
+          class="content-input"
+          @input="handleSearch($event)"
+        />
+      </div>
       <div
         class="content-item"
         v-for="(item, index) in todoList"
@@ -40,8 +48,8 @@
           <button @click="handleDelete(index, item.id)">删除</button>
         </div>
       </div>
-      <div class="content-item">
-        <span>我也是有底线的......</span>
+      <div class="content-item" style="background-color: #4500a2">
+        <span>我也是有底线的......🥺</span>
       </div>
     </div>
   </div>
@@ -57,19 +65,12 @@ export default {
   name: "App",
   data() {
     return {
-      todoList: [
-        {
-          id: "1",
-          isCheck: false,
-          text: "吃饭",
-          time: "22-08-12 20:57",
-        },
-      ],
+      todoList: [],
     };
   },
   created() {
     let getList = JSON.parse(window.localStorage.getItem("listTodo"));
-    if (getList === null) {
+    if (getList.length == 0) {
       this.getList = [
         {
           id: this.randomID(),
@@ -89,10 +90,6 @@ export default {
         isCheck: false,
         text: "",
         time: dayjs(new Date()).format("YY-MM-DD HH:mm"),
-      });
-      const inputLength = this.todoList.length - 1;
-      this.$nextTick(() => {
-        this.$refs.input[inputLength].focus();
       });
     },
     handleDelete(index, id) {
@@ -160,6 +157,15 @@ export default {
     storage() {
       window.localStorage.setItem("listTodo", JSON.stringify(this.todoList));
     },
+    handleSearch(event) {
+      if (event.target.value != "") {
+        this.search = this.todoList.filter((item) =>
+          item.text.includes(event.target.value)
+        );
+      } else {
+        this.search = [];
+      }
+    },
     handleBlur() {
       this.storage();
     },
@@ -208,19 +214,7 @@ button {
       }
     }
     .header-right {
-      .headerSelectAll {
-        background-color: #4500a2;
-      }
-      .headerCancelSelectAll {
-        background-color: #4500a2;
-      }
-      .headerAdd {
-        background-color: #4500a2;
-      }
-      .headerClear {
-        background-color: #4500a2;
-      }
-      .headerDeleteSelected {
+      button {
         background-color: #4500a2;
       }
     }
@@ -272,6 +266,7 @@ button {
         color: #fff;
         font-size: 20px;
         font-family: "Microsoft YaHei";
+        height: 20px;
       }
       .content-right {
         display: flex;
