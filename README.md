@@ -39,3 +39,5 @@ Junyan Yang([1310204834@qq.com](mailto:1310204834@qq.com)) -- writes the main co
   - Change project style
 - 15.09.2022 - 3
   - Add function of "Search"
+
+![image-20220925004612794](photo/image-20220925004612794.png)
