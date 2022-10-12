@@ -12,7 +12,7 @@
         </button>
         <button class="headerAdd" @click="handleAdd">添加</button>
         <button class="headerClear" @click="handleClear">清空</button>
-        <button class="headerDeleteSelected" @input="handleDeleteSelected">
+        <button class="headerDeleteSelected" @click="handleDeleteSelected">
           删除已选
         </button>
       </div>
@@ -138,7 +138,7 @@ export default {
     },
     handleDeleteSelected() {
       if (
-        this.todoList.length !=
+        this.todoList.length !==
         this.todoList.filter((item) => item.isCheck == false).length
       ) {
         this.todoList = this.todoList.filter((item) => item.isCheck == false);
@@ -146,8 +146,8 @@ export default {
           emojis: ["👍", "📅"],
           confettiNumber: 20,
         });
+        this.storage();
       }
-      this.storage();
     },
     randomID() {
       return Number(
